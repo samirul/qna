@@ -36,3 +36,8 @@ Then I  will write the required Django ORM models.
    
 
 There will be also payment methods, cart items, user authentication etc.
+
+URGENT:
+   Please read my cover letter I did forget to upload with application -->
+   
+   https://github.com/samirul/qna/blob/main/cover_letter.txt
