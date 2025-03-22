@@ -1,0 +1,38 @@
+I will first draw a flow chart or any diagram to design databases.
+Then I  will write the required Django ORM models.
+
+-> User Model(For customers and Admin).
+-> Product Category.
+-> Products model.
+-> Orders model.
+-> Order Items model.
+
+1) Each models will have unique UUID primary keys.
+
+2) Can create BaseID abstract model for id(UUID), created at(date time field), updated at(date time field).
+
+3) User model will have id(UUID Field), username(Char Field), email(Email Field), 
+   password(Hashed Password), Confirm password(Verify same as password), role(Optional), 
+   Created at(date time field), updated at(date time field). We can inherit BaseID abstract model for
+   id(UUID), created at(date time field), updated at(date time field) as it reduces repetitiveness.
+
+4) Customer model will be separated for customer information. Will have id(UUID Field), user(One to One or One to Many relationships - ForeignKey),  
+   first name(Char Field), last name(Char Field), Profile Picture(Image Field)(Optional), Address 1(Char Field), Address 2(Char Field),
+   Country(Char Field with choices), State(Char Field with choices), city(Char Field), pin code(Integer Field), created at(date time field), 
+   updated at(date time field).We can inherit BaseID abstract model.
+
+5) Product category models for Categorize products. Will have id(UUID Field), category name(Char Field),
+   description(Text Field)(optional), created at(date time field), updated at(date time field).We can inherit BaseID abstract model.
+
+6) Product model will have id(UUID), product name(Char Field), product type(Optional), selling price(Decimal Field), discounted price(Decimal Field),
+   rating(Integer or Decimal Field), description(Text Field), product image(Image Field), brand(Char Field with choices), categories(One to Many - ForeignKey),
+   created at(date time field), updated at(date time field).We can inherit BaseID abstract model.
+
+7) Orders model will have id(UUID), user(One to Many relationship - ForeignKey), customer(One to Many relationship - ForeignKey), status(Char Field with choices),
+   total prices(Decimal Field), payment type(Char Field with choices), Is paid(Boolean Field), created at(date time field).
+
+8) Order Items model will have id(UUID), order(One to Many relationship - ForeignKey), product(One to Many relationship - ForeignKey), quantity(Positive Integer Field),
+   price(Decimal Field).
+   
+
+There will be also payment methods, cart items, user authentication etc.
